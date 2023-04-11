@@ -1,0 +1,14 @@
+{
+  "name": "gpt-summarizer-server",
+  "version": "1.0.0",
+  "description": "Server to handle OpenAI GPT API calls",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^4.17.3",
+    "cors": "^2.8.5"
+  }
+}
