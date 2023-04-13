@@ -1,5 +1,7 @@
 const tokenSlider = document.getElementById('token-slider');
 const tokenValue = document.getElementById('token-value');
+const wholePage = document.getElementById('wholePage');
+
 tokenSlider.value = 150;
 
 tokenSlider.addEventListener('input', () => {
@@ -9,6 +11,7 @@ tokenSlider.addEventListener('input', () => {
 document.getElementById('summarizeBtn').addEventListener('click', () => {
     const inputText = document.getElementById('inputText').value;
     const resultDiv = document.getElementById('result');
+    
     // scripts/popup.js
    
     let maxTokens = tokenSlider.value;
@@ -16,7 +19,7 @@ document.getElementById('summarizeBtn').addEventListener('click', () => {
     resultDiv.textContent = 'Processing...';
 
     if (inputText == ""){
-        chrome.runtime.sendMessage({ action: 'summarize', inputText, maxTokens }, (response) => {
+        chrome.runtime.sendMessage({ action: 'summarize', inputText, maxTokens, wholePage:wholePage.checked }, (response) => {
             if (chrome.runtime.lastError) {
               resultDiv.textContent = 'Error: ' + chrome.runtime.lastError.message;
             } else {
@@ -27,7 +30,7 @@ document.getElementById('summarizeBtn').addEventListener('click', () => {
     }
 
     else{
-        chrome.runtime.sendMessage({ action: 'custom', inputText, maxTokens }, (response) => {
+        chrome.runtime.sendMessage({ action: 'custom', inputText, maxTokens, wholePage }, (response) => {
         if (chrome.runtime.lastError) {
             resultDiv.textContent = 'Error: ' + chrome.runtime.lastError.message;
         } else {

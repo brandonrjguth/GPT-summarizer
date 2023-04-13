@@ -9,11 +9,16 @@
 <body>
     <h1>GPT Summarizer</h1>
     <textarea id="inputText" placeholder="Enter your question or leave it blank for summarization"></textarea>
+
+    <input type="checkbox" id="wholePage" name="wholePage" value="wholePage">
+    <label for="wholePage">Use entire page?</label><br>
+    
     <div class="maxTokenLine">
         <label for="token-slider">Max Tokens:</label>&nbsp
         <span id="token-value">150</span>
     </div>
     <input type="range" id="token-slider" name="token-slider" min="50" max="500" step="10">
+
     <button id="summarizeBtn">Summarize/Answer</button>
     <div id="result"></div>
 
