@@ -9,8 +9,12 @@
 <body>
     <h1>GPT Summarizer</h1>
     <textarea id="inputText" placeholder="Enter your question or leave it blank for summarization"></textarea>
+    <label for="token-slider">Max Tokens:</label>
+    <input type="range" id="token-slider" name="token-slider" min="50" max="500" step="10">
+    <span id="token-value">150</span>
     <button id="summarizeBtn">Summarize/Answer</button>
     <div id="result"></div>
+
     <script src="scripts/background.js"></script>
     <script src="scripts/popup.js"></script>
 </body>

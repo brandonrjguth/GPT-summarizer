@@ -18,6 +18,7 @@ async function callGptApi(prompt) {
   }
   
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    
     if (request.action === 'summarize') {
       
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -31,7 +32,7 @@ async function callGptApi(prompt) {
           async (selectedTextArray) => {
             const selectedText = selectedTextArray[0].result || '';
             const textToSend = "please summarize the following text: \""+selectedText+"\"";
-            const result = await callGptApi(textToSend);
+            const result = await callGptApi({prompt:textToSend, maxTokens:Number(request.maxTokens)});
             sendResponse({ result });
           }
         );
@@ -50,7 +51,7 @@ async function callGptApi(prompt) {
             async (selectedTextArray) => {
               const selectedText = selectedTextArray[0].result || '';
               const textToSend = "I have a question about the following text: \""+selectedText+"\" Here is my question: \""+request.inputText+"\"";
-              const result = await callGptApi(textToSend);
+              const result = await callGptApi({prompt:textToSend, maxTokens:Number(request.maxTokens)});
               sendResponse({ result });
             }
           );

@@ -11,6 +11,7 @@ const API_URL = 'https://api.openai.com/v1/chat/completions';
 
 app.post('/gpt', async (req, res) => {
   const { prompt } = req.body;
+  console.log(prompt.maxTokens);
 
   try {
     const response = await axios.post(
@@ -20,10 +21,10 @@ app.post('/gpt', async (req, res) => {
         messages: [
           {
             role: 'user',
-            content: prompt,
+            content: prompt.prompt,
           },
         ],
-        max_tokens: 150,
+        max_tokens: prompt.maxTokens,
       },
       {
         headers: {

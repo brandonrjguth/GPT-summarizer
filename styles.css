@@ -25,5 +25,8 @@ button:hover {
 }
 
 #result {
+  max-height: 600px;
+  overflow-y: scroll;
+  padding: 5px;
   margin-top: 10px;
 }
