@@ -10,10 +10,16 @@
     <h1>GPT Summarizer</h1>
     <textarea id="inputText" placeholder="Enter your question or leave it blank for summarization"></textarea>
 
-    <input type="checkbox" id="wholePage" name="wholePage" value="wholePage">
-    <label for="wholePage">Use entire page?</label><br>
-    
-    <div class="maxTokenLine">
+    <!-- Option for summarizing or asking a question about the current page. Runs into problems
+        with too many characters on large websites so I've left this out until I come up with a solution
+
+    <div class="flex">
+        <label for="wholePage">Use entire page?</label>
+        <input type="checkbox" id="wholePage" name="wholePage" value="wholePage">
+    </div>
+    -->
+
+    <div class="flex">
         <label for="token-slider">Max Tokens:</label>&nbsp
         <span id="token-value">150</span>
     </div>

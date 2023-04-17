@@ -24,8 +24,9 @@ textarea {
   padding:10px 0px 10px 10px;
 }
 
-.maxTokenLine{
+.flex{
   display:flex;
+  align-items:center;
 }
 
 label {

@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const API_KEY = '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';
+const API_KEY = /*Your API Key Here*/;
 const API_URL = 'https://api.openai.com/v1/chat/completions';
 
 app.post('/gpt', async (req, res) => {
